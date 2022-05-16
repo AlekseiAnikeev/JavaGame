@@ -8,6 +8,7 @@ import mvc.util.Ranges;
 import java.util.List;
 
 import static mvc.util.CheckUtils.*;
+import static mvc.util.GameObject.*;
 import static seabattle.SeaBattle.COLS;
 import static seabattle.SeaBattle.ROWS;
 
@@ -19,7 +20,7 @@ public class GameField {
     private GameObject[][] shipField;
     private GameObject[][] shotField;
     //оставшееся количество кораблей
-    public static int oneDeckCount = 4;
+    private static int oneDeckCount = 4;
     private static int twoDeckCount = 3;
     private static int threeDeckCount = 2;
     private static int fourDeckCount = 1;
@@ -92,33 +93,42 @@ public class GameField {
         field[coord.x()][coord.y()] = object;
     }
 
-    public void addPairObjectInField(GameObject[][] field, List<Coordinate> coordinate, GameObject object) {
+    public void addPairObjectInField(GameObject[][] field, List<Coordinate> coordinate, GameObject object, int countOfDeck) {
         //по координатам заменяем значение на поле(в Матрице)
-        for (Coordinate coord : coordinate)
-            field[coord.x()][coord.y()] = object;
+        GameObject obj = object;
+            for (Coordinate coord : coordinate) {
+                field[coord.x()][coord.y()] = obj;
+                obj = GameObject.values()[obj.getNumber()-1];
+            }
+
     }
 
     public void addHaloShipInField(GameObject[][] field, Coordinate coordinate) {
         List<Coordinate> aroundCoord = Ranges.getCoordinateAround(coordinate);
         for (Coordinate c : aroundCoord) {
-            field[c.x()][c.y()] = GameObject.LETTER1;
+            field[c.x()][c.y()] = GameObject.OREOL;
         }
     }
 
     public void addHaloPairShipInField(GameObject[][] field, List<Coordinate> aroundCoord) {
-        System.out.println("тут");
         System.out.println(aroundCoord);
         for (Coordinate c : aroundCoord) {
-            field[c.x()][c.y()] = GameObject.LETTER1;
+            field[c.x()][c.y()] = OREOL;
         }
     }
 
     public static void drawShip(OnePlayerPanel panel, Coordinate coord) {
+        GameObject gameObject;
         if (panel.getCountDeck() == 1) {
             if (oneDeckCount != 0) {
                 if (isIntersection(panel.getGameField1(), coord)) {
                     panel.setNameOneDeck(--oneDeckCount);
-                    panel.getGameField1().addObjectInField(panel.getGameField1().getShipField(), coord, GameObject.NUMBER5);
+                    if(panel.getPlacement() == 1){
+                        gameObject = ONE_DECK_SHIP_V;
+                    } else {
+                        gameObject = ONE_DECK_SHIP;
+                    }
+                    panel.getGameField1().addObjectInField(panel.getGameField1().getShipField(), coord, gameObject);
                     panel.getGameField1().addHaloShipInField(panel.getGameField1().getShipField(), coord);
                 } else {
                     CheckUtils.callInformationWindow("Между кораблями должна быть минимум одна клетка, корабли не должны пересекаться!");
@@ -134,6 +144,11 @@ public class GameField {
                         shipCoord = getCoordinates(panel, coord);
                         if (shipCoord == null) return;
                         panel.setNameTwoDeck(--twoDeckCount);
+                        if(panel.getPlacement() == 1){
+                            gameObject = NOS_V_2;
+                        } else {
+                            gameObject = ZAD_2;
+                        }
                     } else {
                         CheckUtils.callInformationWindow("Кораблей данного типа может быть только 3.");
                         return;
@@ -144,6 +159,11 @@ public class GameField {
                         shipCoord = getCoordinates(panel, coord);
                         if (shipCoord == null) return;
                         panel.setNameThreeDeck(--threeDeckCount);
+                        if(panel.getPlacement() == 1){
+                            gameObject = NOS_V_3;
+                        } else {
+                            gameObject = ZAD_3;
+                        }
                     } else {
                         CheckUtils.callInformationWindow("Кораблей данного типа может быть только 2.");
                         return;
@@ -154,17 +174,22 @@ public class GameField {
                         shipCoord = getCoordinates(panel, coord);
                         if (shipCoord == null) return;
                         panel.setNameFourDeck(--fourDeckCount);
+                        if(panel.getPlacement() == 1){
+                            gameObject = NOS_V_4;
+                        } else {
+                            gameObject = GameObject.ZAD_4;
+                        }
                     } else {
                         CheckUtils.callInformationWindow("Кораблей данного типа может быть только 1.");
                         return;
                     }
             }
-            panel.getGameField1().addPairObjectInField(panel.getGameField1().getShipField(), shipCoord, GameObject.LETTER6);
+            panel.getGameField1().addPairObjectInField(panel.getGameField1().getShipField(), shipCoord, gameObject, panel.getCountDeck());
             panel.getGameField1().addHaloPairShipInField(panel.getGameField1().getShipField(), Ranges.getCoordinateAroundPair(shipCoord));
         }
     }
 
-    public int getOneDeckCount() {
+    public static int getOneDeckCount() {
         return oneDeckCount;
     }
 
@@ -172,7 +197,7 @@ public class GameField {
         GameField.oneDeckCount = oneDeckCount;
     }
 
-    public int getTwoDeckCount() {
+    public static int getTwoDeckCount() {
         return twoDeckCount;
     }
 
@@ -180,7 +205,7 @@ public class GameField {
         GameField.twoDeckCount = twoDeckCount;
     }
 
-    public int getThreeDeckCount() {
+    public static int getThreeDeckCount() {
         return threeDeckCount;
     }
 
@@ -188,7 +213,7 @@ public class GameField {
         GameField.threeDeckCount = threeDeckCount;
     }
 
-    public int getFourDeckCount() {
+    public static int getFourDeckCount() {
         return fourDeckCount;
     }
 

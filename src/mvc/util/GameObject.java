@@ -28,7 +28,31 @@ public enum GameObject {
     LETTER9,
     NUMBER9,
     LETTER10,
-    NUMBER10;
+    NUMBER10,
+    OREOL,
+    ONE_DECK_SHIP,
+    ONE_DECK_SHIP_V,
+    NOS_2,
+    ZAD_2,
+    ZAD_V_2,
+    NOS_V_2,
+    NOS_3,
+    SER_3,
+    ZAD_3,
+    ZAD_V_3,
+    SER_V_3,
+    NOS_V_3,
+    NOS_4,
+    SER_4_1,
+    SER_4_2,
+    ZAD_4,
+    ZAD_V_4,
+    SER_V_4_2,
+    SER_V_4_1,
+    NOS_V_4;
+
+
+
     public Object image;
     /**
      * метод для получения картинки при помощи имя из перечислений

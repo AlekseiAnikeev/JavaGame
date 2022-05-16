@@ -101,27 +101,6 @@ public class ViewGUI extends JFrame {
                     } else {
                         CheckUtils.callInformationWindow("Не выбран тип корабля!");
                     }
-                    //создаем координаты длинных кораблей
-//                    List<Coordinate> shipCoord = CheckUtils.getShipCoordinates(onePlayerPanel, coord);
-//                    //если координата косячная выдаем сабж
-//                    if(shipCoord.size() > 1 && !isIntersectionPair(onePlayerPanel.getGameField1(), shipCoord)) {
-//                        CheckUtils.callInformationWindow("Между кораблями должна быть минимум одна клетка, корабли не должны пересекаться!");
-//                    }
-                    //проверка на выбор типа корабля
-//                    if (onePlayerPanel.getCountDeck() == 1) {
-//                        GameField.drawShip(onePlayerPanel, coord);
-//                    } else if (onePlayerPanel.getCountDeck() > 1) {
-//                        //проверка на выбор ориентации корабля
-//                        if (onePlayerPanel.getPlacement() > 0) {
-//                            if (isIntersectionPair(onePlayerPanel.getGameField1(), shipCoord))
-//                                //метод для отрисовки кораблей на поле
-//                                GameField.drawShip(onePlayerPanel, coord);
-//                        } else {
-//                            CheckUtils.callInformationWindow("Не выбрана ориентация размещения.");
-//                        }
-//                    } else {
-//                        CheckUtils.callInformationWindow("Не выбран тип корабля!");
-//                    }
                     CheckUtils.printImg(onePlayerPanel.getGameField1().getShipField());
                 }
                 repaint();

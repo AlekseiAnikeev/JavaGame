@@ -2,6 +2,7 @@ package mvc.panels;
 
 import mvc.GameField;
 import mvc.ViewGUI;
+import mvc.util.CheckUtils;
 import seabattle.SeaBattle;
 
 import javax.swing.*;
@@ -19,7 +20,8 @@ public class OnePlayerPanel extends JPanel {
     private ViewGUI view;
     private JButton exitButton;
     private JButton startButton;
-    public JButton clearingTheFieldButton;
+    private JButton autoCompleteOfTheField;
+    private JButton clearingTheFieldButton;
     private JRadioButton oneDeck;
     private JRadioButton twoDeck;
     private JRadioButton threeDeck;
@@ -76,6 +78,7 @@ public class OnePlayerPanel extends JPanel {
         add(clearingTheFieldButton);
         add(exitButton);
         add(startButton);
+        add(autoCompleteOfTheField);
     }
 
     private void initButton() {
@@ -107,6 +110,32 @@ public class OnePlayerPanel extends JPanel {
                 System.exit(1);
             }
         });
+        autoCompleteOfTheField = new JButton();
+        autoCompleteOfTheField.setFont(font);
+        autoCompleteOfTheField.setText("Заполнить поле");
+        autoCompleteOfTheField.setMargin(new Insets(2, 8, 2, 8));
+        autoCompleteOfTheField.setContentAreaFilled(false);
+        autoCompleteOfTheField.setFocusPainted(false);
+        autoCompleteOfTheField.setOpaque(false);
+        autoCompleteOfTheField.setBounds(450,600, 200, 40);
+        autoCompleteOfTheField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameField1.getEmptyShipField();
+                GameField.setOneDeckCount(4);
+                GameField.setTwoDeckCount(3);
+                GameField.setThreeDeckCount(2);
+                GameField.setFourDeckCount(1);
+                setNameOneDeck(4);
+                setNameTwoDeck(3);
+                setNameThreeDeck(2);
+                setNameFourDeck(1);
+                repaint();
+                CheckUtils.autoCompletionOfTheField(OnePlayerPanel.this);
+                repaint();
+            }
+        });
+
         startButton = new JButton();
         startButton.setFont(font);
         startButton.setText("Старт");
@@ -115,6 +144,16 @@ public class OnePlayerPanel extends JPanel {
         startButton.setFocusPainted(false);
         startButton.setOpaque(false);
         startButton.setBounds(650,600, 200, 40);
+        startButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(CheckUtils.fieldIsFilled()){
+                    System.out.println("lalalal");
+                }else
+                    CheckUtils.callInformationWindow("Нужно выставить все корабли на поле боя!");
+            }
+        });
     }
 
     private void initOrientationAndButton() {

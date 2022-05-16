@@ -14,7 +14,7 @@ public class SeaBattle {
     public static final int COLS = 11;
     //количество строк
     public static final int ROWS = 11;
-    //размер картинки в пикселях, которые у нас будут = 50x50
+    //размер картинки в пикселях, которые у нас будут = 40x40
     public static final int IMAGE_SIZE = 40;
 
     public static void main(String[] args) {
