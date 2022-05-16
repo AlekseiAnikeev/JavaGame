@@ -15,6 +15,6 @@ public class PlayField extends JPanel {
         this.view = view;
         setLayout(null);
         setPreferredSize(new Dimension(weight,height));
-        //обака
+        //пїЅпїЅпїЅпїЅпїЅ С‹
     }
 }
