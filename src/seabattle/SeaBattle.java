@@ -5,21 +5,21 @@ import mvc.util.Coordinate;
 import mvc.util.Ranges;
 
 /**
- * Основной класс
+ * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
  * @author Aleksey Anikeev aka AgentChe
  * Date of creation: 04.05.2022
  */
 public class SeaBattle {
-    //количество столбцов
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ
     public static final int COLS = 11;
-    //количество строк
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
     public static final int ROWS = 11;
-    //размер картинки в пикселях, которые у нас будут = 40x40
+    //СЂР°Р·РјРµСЂ РєР°СЂС‚РёРЅРєРё РІ РїРёРєСЃРµР»СЏС…, РєРѕС‚РѕСЂС‹Рµ Сѓ РЅР°СЃ Р±СѓРґСѓС‚ = 40x40
     public static final int IMAGE_SIZE = 40;
 
     public static void main(String[] args) {
         ViewGUI view = new ViewGUI();
-        //задаем размер поля для проверок в классе Ranges
+        //Р·Р°РґР°РµРј СЂР°Р·РјРµСЂ РїРѕР»СЏ РґР»СЏ РїСЂРѕРІРµСЂРѕРє РІ РєР»Р°СЃСЃРµ Ranges
         Ranges.setSize(new Coordinate(COLS, ROWS));
         view.initMainMenu();
     }

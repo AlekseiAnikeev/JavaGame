@@ -19,7 +19,7 @@ import static seabattle.SeaBattle.ROWS;
 public class GameField {
     private GameObject[][] shipField;
     private GameObject[][] shotField;
-    //оставшееся количество кораблей
+    //РѕСЃС‚Р°РІС€РµРµСЃСЏ РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂР°Р±Р»РµР№
     private static int oneDeckCount = 4;
     private static int twoDeckCount = 3;
     private static int threeDeckCount = 2;
@@ -32,7 +32,7 @@ public class GameField {
     }
 
     /**
-     * метод заполнения пустого игрового поля
+     * РјРµС‚РѕРґ Р·Р°РїРѕР»РЅРµРЅРёСЏ РїСѓСЃС‚РѕРіРѕ РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ
      */
     private void shipEmptyFieldFilling() {
         shipField = new GameObject[COLS][ROWS];
@@ -40,7 +40,7 @@ public class GameField {
             for (int j = 0; j < 11; j++) {
                 if (i == 0 && j == 0) {
                     shipField[i][j] = GameObject.ZERO;
-                    //если это первый столбец то присваиваем значение картинок с буквами
+                    //РµСЃР»Рё СЌС‚Рѕ РїРµСЂРІС‹Р№ СЃС‚РѕР»Р±РµС† С‚Рѕ РїСЂРёСЃРІР°РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ РєР°СЂС‚РёРЅРѕРє СЃ Р±СѓРєРІР°РјРё
                 } else if (i == 0 && j != 0) {
                     String text = "LETTER" + j;
                     shipField[j][i] = GameObject.valueOf(text);
@@ -54,7 +54,7 @@ public class GameField {
     }
 
     /**
-     * Метод заполнения пустого поля для выстрелов
+     * РњРµС‚РѕРґ Р·Р°РїРѕР»РЅРµРЅРёСЏ РїСѓСЃС‚РѕРіРѕ РїРѕР»СЏ РґР»СЏ РІС‹СЃС‚СЂРµР»РѕРІ
      */
     private void shotEmptyFieldFilling() {
         shotField = new GameObject[COLS][ROWS];
@@ -62,7 +62,7 @@ public class GameField {
             for (int j = 0; j < 11; j++) {
                 if (i == 0 && j == 0) {
                     shotField[i][j] = GameObject.ZERO;
-                    //если это первый столбец то присваиваем значение картинок с буквами
+                    //РµСЃР»Рё СЌС‚Рѕ РїРµСЂРІС‹Р№ СЃС‚РѕР»Р±РµС† С‚Рѕ РїСЂРёСЃРІР°РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ РєР°СЂС‚РёРЅРѕРє СЃ Р±СѓРєРІР°РјРё
                 } else if (i == 0) {
                     String text = "LETTER" + j;
                     shotField[i][j] = GameObject.valueOf(text);
@@ -89,17 +89,17 @@ public class GameField {
     }
 
     public void addObjectInField(GameObject[][] field, Coordinate coord, GameObject object) {
-        //по координатам заменяем значение на поле(в Матрице)
+        //РїРѕ РєРѕРѕСЂРґРёРЅР°С‚Р°Рј Р·Р°РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РЅР° РїРѕР»Рµ(РІ РњР°С‚СЂРёС†Рµ)
         field[coord.x()][coord.y()] = object;
     }
 
     public void addPairObjectInField(GameObject[][] field, List<Coordinate> coordinate, GameObject object, int countOfDeck) {
-        //по координатам заменяем значение на поле(в Матрице)
+        //РїРѕ РєРѕРѕСЂРґРёРЅР°С‚Р°Рј Р·Р°РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РЅР° РїРѕР»Рµ(РІ РњР°С‚СЂРёС†Рµ)
         GameObject obj = object;
-            for (Coordinate coord : coordinate) {
-                field[coord.x()][coord.y()] = obj;
-                obj = GameObject.values()[obj.getNumber()-1];
-            }
+        for (Coordinate coord : coordinate) {
+            field[coord.x()][coord.y()] = obj;
+            obj = GameObject.values()[obj.getNumber()-1];
+        }
 
     }
 
@@ -131,10 +131,10 @@ public class GameField {
                     panel.getGameField1().addObjectInField(panel.getGameField1().getShipField(), coord, gameObject);
                     panel.getGameField1().addHaloShipInField(panel.getGameField1().getShipField(), coord);
                 } else {
-                    CheckUtils.callInformationWindow("Между кораблями должна быть минимум одна клетка, корабли не должны пересекаться!");
+                    CheckUtils.callInformationWindow("РњРµР¶РґСѓ РєРѕСЂР°Р±Р»СЏРјРё РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РјРёРЅРёРјСѓРј РѕРґРЅР° РєР»РµС‚РєР°, РєРѕСЂР°Р±Р»Рё РЅРµ РґРѕР»Р¶РЅС‹ РїРµСЂРµСЃРµРєР°С‚СЊСЃСЏ!");
                 }
             } else {
-                CheckUtils.callInformationWindow("Кораблей данного типа может быть только 4.");
+                CheckUtils.callInformationWindow("РљРѕСЂР°Р±Р»РµР№ РґР°РЅРЅРѕРіРѕ С‚РёРїР° РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ 4.");
             }
         } else if (panel.getCountDeck() > 1) {
             List<Coordinate> shipCoord;
@@ -150,7 +150,7 @@ public class GameField {
                             gameObject = ZAD_2;
                         }
                     } else {
-                        CheckUtils.callInformationWindow("Кораблей данного типа может быть только 3.");
+                        CheckUtils.callInformationWindow("РљРѕСЂР°Р±Р»РµР№ РґР°РЅРЅРѕРіРѕ С‚РёРїР° РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ 3.");
                         return;
                     }
                     break;
@@ -165,7 +165,7 @@ public class GameField {
                             gameObject = ZAD_3;
                         }
                     } else {
-                        CheckUtils.callInformationWindow("Кораблей данного типа может быть только 2.");
+                        CheckUtils.callInformationWindow("РљРѕСЂР°Р±Р»РµР№ РґР°РЅРЅРѕРіРѕ С‚РёРїР° РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ 2.");
                         return;
                     }
                     break;
@@ -180,7 +180,7 @@ public class GameField {
                             gameObject = GameObject.ZAD_4;
                         }
                     } else {
-                        CheckUtils.callInformationWindow("Кораблей данного типа может быть только 1.");
+                        CheckUtils.callInformationWindow("РљРѕСЂР°Р±Р»РµР№ РґР°РЅРЅРѕРіРѕ С‚РёРїР° РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ 1.");
                         return;
                     }
             }

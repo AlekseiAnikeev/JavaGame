@@ -46,7 +46,5 @@ public class HelpPanel extends JPanel {
         //d2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         d2.drawImage(getImage("mainUpNew"), 0, 0, this);
         d2.drawImage(getImage("helpPanel"), 0, 274, this);
-
-
     }
 }

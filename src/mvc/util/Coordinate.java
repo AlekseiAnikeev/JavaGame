@@ -8,11 +8,11 @@ public record Coordinate(int x, int y) {
 
     @Override
     public boolean equals(Object o) {
-        //если переданный обьект является обьектом Coordinate то возвращяем сравнение
+        //РµСЃР»Рё РїРµСЂРµРґР°РЅРЅС‹Р№ РѕР±СЊРµРєС‚ СЏРІР»СЏРµС‚СЃСЏ РѕР±СЊРµРєС‚РѕРј Coordinate С‚Рѕ РІРѕР·РІСЂР°С‰СЏРµРј СЃСЂР°РІРЅРµРЅРёРµ
         if (o instanceof Coordinate) {
             return ((Coordinate) o).x() == x() && ((Coordinate) o).y() == y();
         }
-        //если не так то возврат базового equals
+        //РµСЃР»Рё РЅРµ С‚Р°Рє С‚Рѕ РІРѕР·РІСЂР°С‚ Р±Р°Р·РѕРІРѕРіРѕ equals
         return false;
     }
 }

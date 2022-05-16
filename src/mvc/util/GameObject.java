@@ -55,7 +55,7 @@ public enum GameObject {
 
     public Object image;
     /**
-     * метод для получения картинки при помощи имя из перечислений
+     * РјРµС‚РѕРґ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РєР°СЂС‚РёРЅРєРё РїСЂРё РїРѕРјРѕС‰Рё РёРјСЏ РёР· РїРµСЂРµС‡РёСЃР»РµРЅРёР№
      */
     public GameObject getNextNumberBox() {
         return GameObject.values()[this.ordinal() + 1];
@@ -65,11 +65,11 @@ public enum GameObject {
         return this.ordinal();
     }
     public static Image getImage(String nameImage) {
-        //определяем имя картинки(выбираем директорию, имя и расширение(у нас все png в директории img))
+        //РѕРїСЂРµРґРµР»СЏРµРј РёРјСЏ РєР°СЂС‚РёРЅРєРё(РІС‹Р±РёСЂР°РµРј РґРёСЂРµРєС‚РѕСЂРёСЋ, РёРјСЏ Рё СЂР°СЃС€РёСЂРµРЅРёРµ(Сѓ РЅР°СЃ РІСЃРµ png РІ РґРёСЂРµРєС‚РѕСЂРёРё img))
         String fileName = "res/img/" + nameImage.toLowerCase() + ".png";
-        //создадим объект ImageIcon из нашего файла
+        //СЃРѕР·РґР°РґРёРј РѕР±СЉРµРєС‚ ImageIcon РёР· РЅР°С€РµРіРѕ С„Р°Р№Р»Р°
         ImageIcon icon = new ImageIcon(fileName);
-        //возврат картинке через getImage()
+        //РІРѕР·РІСЂР°С‚ РєР°СЂС‚РёРЅРєРµ С‡РµСЂРµР· getImage()
         return icon.getImage();
     }
 

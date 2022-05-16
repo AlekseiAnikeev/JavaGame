@@ -11,9 +11,9 @@ import java.util.Random;
  */
 public class Ranges {
     private static Coordinate size;
-    //описание всех координат
+    //РѕРїРёСЃР°РЅРёРµ РІСЃРµС… РєРѕРѕСЂРґРёРЅР°С‚
     private static List<Coordinate> allCoordinates;
-    //статическое поле для генератора случайных цифер
+    //СЃС‚Р°С‚РёС‡РµСЃРєРѕРµ РїРѕР»Рµ РґР»СЏ РіРµРЅРµСЂР°С‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅС‹С… С†РёС„РµСЂ
 
     private static final Random random = new Random();
 
@@ -36,7 +36,7 @@ public class Ranges {
     }
 
     /**
-     * /проверка на координаты, дабы не выйти за пределы поля
+     * /РїСЂРѕРІРµСЂРєР° РЅР° РєРѕРѕСЂРґРёРЅР°С‚С‹, РґР°Р±С‹ РЅРµ РІС‹Р№С‚Рё Р·Р° РїСЂРµРґРµР»С‹ РїРѕР»СЏ
      */
     public static boolean inRange(Coordinate coord) {
         return coord.x() >= 1 && coord.x() < size.x() &&
@@ -45,7 +45,7 @@ public class Ranges {
 
 
     /**
-     * метод возвращяющий случайную координату
+     * РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰СЏСЋС‰РёР№ СЃР»СѓС‡Р°Р№РЅСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ
      */
     static Coordinate getRandomCoordinate() {
         return new Coordinate(random.nextInt(size.x()),
@@ -53,18 +53,18 @@ public class Ranges {
     }
 
     /**
-     * метод для перебора клеток расположенных вокруг заданной
+     * РјРµС‚РѕРґ РґР»СЏ РїРµСЂРµР±РѕСЂР° РєР»РµС‚РѕРє СЂР°СЃРїРѕР»РѕР¶РµРЅРЅС‹С… РІРѕРєСЂСѓРі Р·Р°РґР°РЅРЅРѕР№
      */
     public static List<Coordinate> getCoordinateAround(Coordinate coordinate) {
         Coordinate around;
         List<Coordinate> list = new ArrayList<>();
-        //проходим от х -1 до х + 1
+        //РїСЂРѕС…РѕРґРёРј РѕС‚ С… -1 РґРѕ С… + 1
         for (int x = coordinate.x() - 1; x <= coordinate.x() + 1; x++) {
-            //проходим от у -1 до у + 1
+            //РїСЂРѕС…РѕРґРёРј РѕС‚ Сѓ -1 РґРѕ Сѓ + 1
             for (int y = coordinate.y() - 1; y <= coordinate.y() + 1; y++) {
-                //проверка что координаты есть на поле
+                //РїСЂРѕРІРµСЂРєР° С‡С‚Рѕ РєРѕРѕСЂРґРёРЅР°С‚С‹ РµСЃС‚СЊ РЅР° РїРѕР»Рµ
                 if (inRange(around = new Coordinate(x, y))) {
-                    //исключаем вводную координату, в классе Coordinate метод equals переопределен дабы сравнивать координаты, а не объекты.
+                    //РёСЃРєР»СЋС‡Р°РµРј РІРІРѕРґРЅСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ, РІ РєР»Р°СЃСЃРµ Coordinate РјРµС‚РѕРґ equals РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅ РґР°Р±С‹ СЃСЂР°РІРЅРёРІР°С‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹, Р° РЅРµ РѕР±СЉРµРєС‚С‹.
                     if (!around.equals(coordinate)) {
                         list.add(around);
                     }
@@ -75,10 +75,10 @@ public class Ranges {
     }
 
     /**
-     * метод для перебора клеток расположенных вокруг заданных точек
+     * РјРµС‚РѕРґ РґР»СЏ РїРµСЂРµР±РѕСЂР° РєР»РµС‚РѕРє СЂР°СЃРїРѕР»РѕР¶РµРЅРЅС‹С… РІРѕРєСЂСѓРі Р·Р°РґР°РЅРЅС‹С… С‚РѕС‡РµРє
      */
     public static List<Coordinate> getCoordinateAroundPair(List<Coordinate> coordinate) {
-        //находим минимальную и максимальную координату
+        //РЅР°С…РѕРґРёРј РјРёРЅРёРјР°Р»СЊРЅСѓСЋ Рё РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ
         Coordinate start = coordinate.get(0).x() < coordinate.get(coordinate.size() - 1).x()
                 || coordinate.get(0).y() < coordinate.get(coordinate.size() - 1).y() ? coordinate.get(0) : coordinate.get(coordinate.size() - 1);
         Coordinate finish = coordinate.get(0).x() > coordinate.get(coordinate.size() - 1).x()
@@ -90,13 +90,13 @@ public class Ranges {
         System.out.println("x = " + finish.x() + " , y = " + finish.y());
         Coordinate around;
         List<Coordinate> list = new ArrayList<>();
-        //проходим от х -1 до х + 1
+        //РїСЂРѕС…РѕРґРёРј РѕС‚ С… -1 РґРѕ С… + 1
         for (int x = start.x() - 1; x <= finish.x() + 1; x++) {
-            //проходим от у -1 до у + 1
+            //РїСЂРѕС…РѕРґРёРј РѕС‚ Сѓ -1 РґРѕ Сѓ + 1
             for (int y = start.y() - 1; y <= finish.y() + 1; y++) {
-                //проверка что координаты есть на поле
+                //РїСЂРѕРІРµСЂРєР° С‡С‚Рѕ РєРѕРѕСЂРґРёРЅР°С‚С‹ РµСЃС‚СЊ РЅР° РїРѕР»Рµ
                 if (inRange(around = new Coordinate(x, y))) {
-                    //исключаем вводную координату, в классе Coordinate метод equals переопределен дабы сравнивать координаты, а не объекты.
+                    //РёСЃРєР»СЋС‡Р°РµРј РІРІРѕРґРЅСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ, РІ РєР»Р°СЃСЃРµ Coordinate РјРµС‚РѕРґ equals РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅ РґР°Р±С‹ СЃСЂР°РІРЅРёРІР°С‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹, Р° РЅРµ РѕР±СЉРµРєС‚С‹.
                     if (!coordinate.contains(around)) {
                         list.add(around);
                     }

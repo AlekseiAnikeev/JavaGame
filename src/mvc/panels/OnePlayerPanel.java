@@ -83,7 +83,7 @@ public class OnePlayerPanel extends JPanel {
 
     private void initButton() {
         oneDeck = new JRadioButton();
-        //вызвать для перерисовки этот метод
+        //РІС‹Р·РІР°С‚СЊ РґР»СЏ РїРµСЂРµСЂРёСЃРѕРІРєРё СЌС‚РѕС‚ РјРµС‚РѕРґ
         setNameOneDeck(4);
         oneDeck.setBounds(55, 150, 370, 30);
         twoDeck = new JRadioButton();
@@ -97,7 +97,7 @@ public class OnePlayerPanel extends JPanel {
         fourDeck.setBounds(55, 223, 370, 30);
         exitButton = new JButton();
         exitButton.setFont(font);
-        exitButton.setText("Выход");
+        exitButton.setText("Р’С‹С…РѕРґ");
         exitButton.setMargin(new Insets(2, 8, 2, 8));
         exitButton.setContentAreaFilled(false);
         exitButton.setFocusPainted(false);
@@ -112,7 +112,7 @@ public class OnePlayerPanel extends JPanel {
         });
         autoCompleteOfTheField = new JButton();
         autoCompleteOfTheField.setFont(font);
-        autoCompleteOfTheField.setText("Заполнить поле");
+        autoCompleteOfTheField.setText("Р—Р°РїРѕР»РЅРёС‚СЊ РїРѕР»Рµ");
         autoCompleteOfTheField.setMargin(new Insets(2, 8, 2, 8));
         autoCompleteOfTheField.setContentAreaFilled(false);
         autoCompleteOfTheField.setFocusPainted(false);
@@ -138,7 +138,7 @@ public class OnePlayerPanel extends JPanel {
 
         startButton = new JButton();
         startButton.setFont(font);
-        startButton.setText("Старт");
+        startButton.setText("РЎС‚Р°СЂС‚");
         startButton.setMargin(new Insets(2, 8, 2, 8));
         startButton.setContentAreaFilled(false);
         startButton.setFocusPainted(false);
@@ -151,7 +151,7 @@ public class OnePlayerPanel extends JPanel {
                 if(CheckUtils.fieldIsFilled()){
                     System.out.println("lalalal");
                 }else
-                    CheckUtils.callInformationWindow("Нужно выставить все корабли на поле боя!");
+                    CheckUtils.callInformationWindow("РќСѓР¶РЅРѕ РІС‹СЃС‚Р°РІРёС‚СЊ РІСЃРµ РєРѕСЂР°Р±Р»Рё РЅР° РїРѕР»Рµ Р±РѕСЏ!");
             }
         });
     }
@@ -159,17 +159,17 @@ public class OnePlayerPanel extends JPanel {
     private void initOrientationAndButton() {
         labelOrientation = new JLabel();
         labelOrientation.setFont(font);
-        labelOrientation.setText("Выбор ориентации");
+        labelOrientation.setText("Р’С‹Р±РѕСЂ РѕСЂРёРµРЅС‚Р°С†РёРё");
         labelOrientation.setBounds(164, 393, 250, 30);
         ship = new JLabel();
         ship.setFont(font);
-        ship.setText("корабля:");
+        ship.setText("РєРѕСЂР°Р±Р»СЏ:");
         ship.setBounds(210, 416, 100, 30);
-        vertical = new JRadioButton("Вертикальная");
+        vertical = new JRadioButton("Р’РµСЂС‚РёРєР°Р»СЊРЅР°СЏ");
         vertical.setFont(font);
         vertical.setBounds(160, 441, 200, 30);
         vertical.setOpaque(false);
-        horizontal = new JRadioButton("Горизонтальная");
+        horizontal = new JRadioButton("Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ");
         horizontal.setOpaque(false);
         horizontal.setFont(font);
         horizontal.setBounds(160, 466, 200, 30);
@@ -178,15 +178,15 @@ public class OnePlayerPanel extends JPanel {
     private void initShipLabelName() {
         addShipLabelName = new JLabel();
         addShipLabelName.setFont(font);
-        addShipLabelName.setText("Выбери тип корабля:");
+        addShipLabelName.setText("Р’С‹Р±РµСЂРё С‚РёРї РєРѕСЂР°Р±Р»СЏ:");
         addShipLabelName.setBounds(105, 123, 270, 30);
         clearingTheField = new JLabel();
         clearingTheField.setFont(font);
-        clearingTheField.setText("Ошибся? Начни с начала:");
+        clearingTheField.setText("РћС€РёР±СЃСЏ? РќР°С‡РЅРё СЃ РЅР°С‡Р°Р»Р°:");
         clearingTheField.setBounds(84, 270, 270,30);
         clearingTheFieldButton = new JButton();
         clearingTheFieldButton.setFont(font);
-        clearingTheFieldButton.setText("Очистить поле");
+        clearingTheFieldButton.setText("РћС‡РёСЃС‚РёС‚СЊ РїРѕР»Рµ");
         clearingTheFieldButton.setMargin(new Insets(2, 8, 2, 8));
         clearingTheFieldButton.setContentAreaFilled(false);
         clearingTheFieldButton.setFocusPainted(false);
@@ -218,11 +218,11 @@ public class OnePlayerPanel extends JPanel {
         Font font2;
         font2 = new Font("lobster", Font.BOLD, 44);
         gameField.setFont(font2);
-        gameField.setText("Игровое поле");
+        gameField.setText("РРіСЂРѕРІРѕРµ РїРѕР»Рµ");
         gameField.setBounds(700, 10, 270, 50);
         addShipLabel = new JLabel();
         addShipLabel.setFont(font);
-        addShipLabel.setText("Расположение кораблей");
+        addShipLabel.setText("Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ РєРѕСЂР°Р±Р»РµР№");
         addShipLabel.setBounds(90, 73, 250, 30);
     }
 
@@ -230,25 +230,25 @@ public class OnePlayerPanel extends JPanel {
         String text;
         switch (count) {
             case 4:
-                text = "Однопалубный";
+                text = "РћРґРЅРѕРїР°Р»СѓР±РЅС‹Р№";
                 break;
             case 3:
-                text = "Двухпалубный";
+                text = "Р”РІСѓС…РїР°Р»СѓР±РЅС‹Р№";
                 break;
             case 2:
-                text = "Трехпалубный";
+                text = "РўСЂРµС…РїР°Р»СѓР±РЅС‹Р№";
                 break;
             default:
-                text = "Четырехпалубный";
+                text = "Р§РµС‚С‹СЂРµС…РїР°Р»СѓР±РЅС‹Р№";
         }
         Font newFont = new Font("lobster", Font.BOLD, 16);
         button.setFont(newFont);
-        button.setText(text + " корабль, осталось: " + count);
+        button.setText(text + " РєРѕСЂР°Р±Р»СЊ, РѕСЃС‚Р°Р»РѕСЃСЊ: " + count);
         button.setOpaque(false);
     }
-    //установка имени радиобаттанов палубности
+    //СѓСЃС‚Р°РЅРѕРІРєР° РёРјРµРЅРё СЂР°РґРёРѕР±Р°С‚С‚Р°РЅРѕРІ РїР°Р»СѓР±РЅРѕСЃС‚Рё
     public void setNameOneDeck(int count) {
-        String text = "Однопалубный корабль, осталось: " + count;
+        String text = "РћРґРЅРѕРїР°Р»СѓР±РЅС‹Р№ РєРѕСЂР°Р±Р»СЊ, РѕСЃС‚Р°Р»РѕСЃСЊ: " + count;
         Font newFont = new Font("lobster", Font.BOLD, 16);
         oneDeck.setFont(newFont);
         oneDeck.setText(text);
@@ -256,17 +256,17 @@ public class OnePlayerPanel extends JPanel {
     }
 
     public void setNameTwoDeck(int count) {
-        String text = "Двухпалубный корабль, осталось: " + count;
+        String text = "Р”РІСѓС…РїР°Р»СѓР±РЅС‹Р№ РєРѕСЂР°Р±Р»СЊ, РѕСЃС‚Р°Р»РѕСЃСЊ: " + count;
         twoDeck.setText(text);
     }
 
     public void setNameThreeDeck(int count) {
-        String text = "Трехпалубный корабль, осталось: " + count;
+        String text = "РўСЂРµС…РїР°Р»СѓР±РЅС‹Р№ РєРѕСЂР°Р±Р»СЊ, РѕСЃС‚Р°Р»РѕСЃСЊ: " + count;
         threeDeck.setText(text);
     }
 
     public void setNameFourDeck(int count) {
-        String text = "Четырехпалубный корабль, осталось: " + count;
+        String text = "Р§РµС‚С‹СЂРµС…РїР°Р»СѓР±РЅС‹Р№ РєРѕСЂР°Р±Р»СЊ, РѕСЃС‚Р°Р»РѕСЃСЊ: " + count;
         fourDeck.setText(text);
     }
 
@@ -292,7 +292,7 @@ public class OnePlayerPanel extends JPanel {
     }
 
     /**
-     * метод для отрисовки поля на панели
+     * РјРµС‚РѕРґ РґР»СЏ РѕС‚СЂРёСЃРѕРІРєРё РїРѕР»СЏ РЅР° РїР°РЅРµР»Рё
      */
     private void fillInTheField(Graphics2D g2) {
 
@@ -307,7 +307,7 @@ public class OnePlayerPanel extends JPanel {
         }
     }
 
-    //возвращает кол-во палуб в зависимости - какой радиоБаттон выбран
+    //РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»-РІРѕ РїР°Р»СѓР± РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё - РєР°РєРѕР№ СЂР°РґРёРѕР‘Р°С‚С‚РѕРЅ РІС‹Р±СЂР°РЅ
     public int getCountDeck() {
         if (oneDeck.isSelected()) return 1;
         else if (twoDeck.isSelected()) return 2;
@@ -316,7 +316,7 @@ public class OnePlayerPanel extends JPanel {
         else return 0;
     }
 
-    //возвращает число обозначающее какая ориентация корабля выбрана
+    //РІРѕР·РІСЂР°С‰Р°РµС‚ С‡РёСЃР»Рѕ РѕР±РѕР·РЅР°С‡Р°СЋС‰РµРµ РєР°РєР°СЏ РѕСЂРёРµРЅС‚Р°С†РёСЏ РєРѕСЂР°Р±Р»СЏ РІС‹Р±СЂР°РЅР°
     public int getPlacement() {
         if (vertical.isSelected()) return 1;
         else if (horizontal.isSelected()) return 2;

@@ -20,7 +20,6 @@ ViewGUI view;
     private JButton twoPlayerButton;
     private JButton helpButton;
 
-
     public MainPanel(ViewGUI view, int width, int height) {
         this.view = view;
         setLayout(null);

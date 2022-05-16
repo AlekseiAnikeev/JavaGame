@@ -14,41 +14,41 @@ import static seabattle.SeaBattle.*;
 
 
 /**
- * класс JFrame в котором выбираются необходимые панели
+ * РєР»Р°СЃСЃ JFrame РІ РєРѕС‚РѕСЂРѕРј РІС‹Р±РёСЂР°СЋС‚СЃСЏ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїР°РЅРµР»Рё
  *
  * @author Aleksey Anikeev aka AgentChe
  * Date of creation: 04.05.2022
  */
 public class ViewGUI extends JFrame {
     private Coordinate coord;
-    //Панель для соло игры
+    //РџР°РЅРµР»СЊ РґР»СЏ СЃРѕР»Рѕ РёРіСЂС‹
     private OnePlayerPanel onePlayerPanel;
-    //размер окна игровых панелей
+    //СЂР°Р·РјРµСЂ РѕРєРЅР° РёРіСЂРѕРІС‹С… РїР°РЅРµР»РµР№
     private final int MAIN_SCREEN_WIDTH = 1080;
     private final int MAIN_SCREEN_HEIGHT = 674;
 
     public ViewGUI() {
-        //метод для закрытия приложения при клике на Х
+        //РјРµС‚РѕРґ РґР»СЏ Р·Р°РєСЂС‹С‚РёСЏ РїСЂРёР»РѕР¶РµРЅРёСЏ РїСЂРё РєР»РёРєРµ РЅР° РҐ
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //название окна
-        setTitle("Морской Бой");
-        //запрет изменения размера
+        //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
+        setTitle("РњРѕСЂСЃРєРѕР№ Р‘РѕР№");
+        //Р·Р°РїСЂРµС‚ РёР·РјРµРЅРµРЅРёСЏ СЂР°Р·РјРµСЂР°
         setResizable(false);
-        //делаем окно видимым
+        //РґРµР»Р°РµРј РѕРєРЅРѕ РІРёРґРёРјС‹Рј
         setVisible(true);
-        //метод pack устанавливает минимальный размер контейнера, что бы отобразить все элементы
+        //РјРµС‚РѕРґ pack СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РєРѕРЅС‚РµР№РЅРµСЂР°, С‡С‚Рѕ Р±С‹ РѕС‚РѕР±СЂР°Р·РёС‚СЊ РІСЃРµ СЌР»РµРјРµРЅС‚С‹
         pack();
-        //запуск по центру экрана
+        //Р·Р°РїСѓСЃРє РїРѕ С†РµРЅС‚СЂСѓ СЌРєСЂР°РЅР°
         setLocationRelativeTo(null);
-        // делаем иконку приложения
+        // РґРµР»Р°РµРј РёРєРѕРЅРєСѓ РїСЂРёР»РѕР¶РµРЅРёСЏ
         setIconImage(GameObject.getImage("icon"));
     }
 
-    //метод для инициализации основной панели
+    //РјРµС‚РѕРґ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РѕСЃРЅРѕРІРЅРѕР№ РїР°РЅРµР»Рё
     public void initMainMenu() {
-        //метод очистки JFrame, если не вызвать, то сохранится часть интерфейса с предыдущего jPanel
+        //РјРµС‚РѕРґ РѕС‡РёСЃС‚РєРё JFrame, РµСЃР»Рё РЅРµ РІС‹Р·РІР°С‚СЊ, С‚Рѕ СЃРѕС…СЂР°РЅРёС‚СЃСЏ С‡Р°СЃС‚СЊ РёРЅС‚РµСЂС„РµР№СЃР° СЃ РїСЂРµРґС‹РґСѓС‰РµРіРѕ jPanel
         getContentPane().removeAll();
-        //Панель основного меню
+        //РџР°РЅРµР»СЊ РѕСЃРЅРѕРІРЅРѕРіРѕ РјРµРЅСЋ
         add(new MainPanel(this, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT));
         pack();
         setLocationRelativeTo(null);
@@ -57,12 +57,12 @@ public class ViewGUI extends JFrame {
     }
 
     /**
-     * метод для инициализации панели помощи
+     * РјРµС‚РѕРґ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РїР°РЅРµР»Рё РїРѕРјРѕС‰Рё
      */
 
     public void initHelpPanel() {
         getContentPane().removeAll();
-        //Панель помощи
+        //РџР°РЅРµР»СЊ РїРѕРјРѕС‰Рё
         add(new HelpPanel(this, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT));
 
         pack();
@@ -72,34 +72,34 @@ public class ViewGUI extends JFrame {
     }
 
     /**
-     * метод для инициализации панели на одного игрока
+     * РјРµС‚РѕРґ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РїР°РЅРµР»Рё РЅР° РѕРґРЅРѕРіРѕ РёРіСЂРѕРєР°
      */
     public void initOnePlayerPanel() {
         getContentPane().removeAll();
         add(onePlayerPanel = new OnePlayerPanel(this, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT));
         GameField gameField = new GameField();
-        //слушатель мыши
+        //СЃР»СѓС€Р°С‚РµР»СЊ РјС‹С€Рё
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                //получаем координату по х и у с курсора при клике
+                //РїРѕР»СѓС‡Р°РµРј РєРѕРѕСЂРґРёРЅР°С‚Сѓ РїРѕ С… Рё Сѓ СЃ РєСѓСЂСЃРѕСЂР° РїСЂРё РєР»РёРєРµ
                 int x = e.getX() / IMAGE_SIZE - 15;
                 int y = e.getY() / IMAGE_SIZE - 3;
-                System.out.println("мыш адаптер в viewGUI");
-                System.out.println("по х: " + (x) + "\n"
-                        + "по у: " + (y));
-                //получаем новую координату
+                System.out.println("РјС‹С€ Р°РґР°РїС‚РµСЂ РІ viewGUI");
+                System.out.println("РїРѕ С…: " + (x) + "\n"
+                        + "РїРѕ Сѓ: " + (y));
+                //РїРѕР»СѓС‡Р°РµРј РЅРѕРІСѓСЋ РєРѕРѕСЂРґРёРЅР°С‚Сѓ
                 coord = new Coordinate(x, y);
-                //проверяем координату на выход за пределы игрового поля
+                //РїСЂРѕРІРµСЂСЏРµРј РєРѕРѕСЂРґРёРЅР°С‚Сѓ РЅР° РІС‹С…РѕРґ Р·Р° РїСЂРµРґРµР»С‹ РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ
                 if (inRange(coord)) {
                     if(onePlayerPanel.getCountDeck() > 0) {
                         if(onePlayerPanel.getPlacement() > 0) {
                             GameField.drawShip(onePlayerPanel, coord);
                         } else {
-                            CheckUtils.callInformationWindow("Не выбрана ориентация размещения.");
+                            CheckUtils.callInformationWindow("РќРµ РІС‹Р±СЂР°РЅР° РѕСЂРёРµРЅС‚Р°С†РёСЏ СЂР°Р·РјРµС‰РµРЅРёСЏ.");
                         }
                     } else {
-                        CheckUtils.callInformationWindow("Не выбран тип корабля!");
+                        CheckUtils.callInformationWindow("РќРµ РІС‹Р±СЂР°РЅ С‚РёРї РєРѕСЂР°Р±Р»СЏ!");
                     }
                     CheckUtils.printImg(onePlayerPanel.getGameField1().getShipField());
                 }
